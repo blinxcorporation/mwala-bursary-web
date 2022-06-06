@@ -1,6 +1,6 @@
 <?php
 include './server.php';
-$user = $_SESSION['kenyanid'];
+$user = $_SESSION['kenyanid'];//used to know which user is loggeg in
 ?>
 <!DOCTYPE html>
 <html lang="en">
