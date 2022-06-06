@@ -1,4 +1,5 @@
 <!-- Footer -->
+<div class="container">
 <footer class="page-footer font-small blue fixed-bottom bg-dark">
 
   <!-- Copyright -->
@@ -8,4 +9,5 @@
   <!-- Copyright -->
 
 </footer>
+</div>
 <!-- Footer -->

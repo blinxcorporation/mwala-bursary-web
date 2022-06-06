@@ -26,7 +26,7 @@
 </div>
 <div class="col-md-4 m-1">
 <div class="card">
-  <h5 class="card-header">Previous Application</h5>
+  <h5 class="card-header">Previous Application(s)</h5>
   <div class="card-body">
     <p class="card-text">Click the <strong>View Previous Applications</strong> button below to view previous applications that you made.</p>
     <a href="#" class="btn btn-info">View Previous Applications</a>
@@ -47,6 +47,7 @@
 <?php 
 include './includes/footer.php';
 ?>
+
 <?php 
 include './includes/scripts.php';
 ?>
