@@ -33,7 +33,7 @@ if(isset($_POST['student_login_btn'])){
     $student_phone= $row['student_phone'];
     $student_pass= $row['student_password'];
 
-    $_SESSION['kenyanid'] =  $student_id;
+    $_SESSION['kenyanid'] =  $nationalId;
     $_SESSION['fname'] =  $student_fname;
     $_SESSION['lname'] =  $student_lname;
     $_SESSION['phone'] =  $student_phone;
