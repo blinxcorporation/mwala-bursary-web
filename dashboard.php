@@ -48,12 +48,8 @@ $user = $_SESSION['kenyanid'];
   
   
   
-  <?php
-if($user == true){
-  echo '<script>alert("user Found")</script>';
-}else{
-  echo '<script>alert("No user Found")</script>';
-}
+
+
 
 ?>
   <?php 
