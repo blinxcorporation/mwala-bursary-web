@@ -14,7 +14,7 @@ $user = $_SESSION['kenyanid'];//used to know which user is loggeg in
 <div class="container-fluid">
   <?php 
      include "./includes/navbar.php";
-     ?>
+     ?> 
   <!--end of navbar-->
   
   <div class="row mt-4">
