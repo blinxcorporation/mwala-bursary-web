@@ -53,6 +53,10 @@ $user = $_SESSION['kenyanid'];//used to know which user is loggeg in
         <label for="recipient-name" class="col-form-label">Serial No:</label>
         <input type="text" class="form-control" id="recipient-name">
       </div>
+      <div class="form-group">
+  <label for="recipient-name" class="col-form-label">Student ID:</label>
+  <input type="text" class="form-control" id="recipient-name">
+</div>
           <div class="form-group">
   <label for="recipient-name" class="col-form-label">Date of Application:</label>
   <input type="text" class="form-control" id="recipient-name">
