@@ -62,15 +62,18 @@ $user = $_SESSION['kenyanid'];//used to know which user is loggeg in
   <input type="text" class="form-control" id="recipient-name">
 </div>
        
-       
+<div class="modal-footer">
+   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+   <button type="button" class="btn btn-primary">Submit Application</button>
+ </div>     
        
        
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit Application</button>
-      </div>
+     
+     
+     
+     
     </div>
   </div>
 </div>
