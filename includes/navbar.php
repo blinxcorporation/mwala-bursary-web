@@ -26,6 +26,8 @@
           <a class="dropdown-item" href="#">Internships</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Attachments</a>
+          
+          
         </div>
       </li>
       <li class="nav-item active">
@@ -41,6 +43,9 @@
           <a class="dropdown-item" href="./profile.php">Personal Details</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Educational Details</a>
+          <div class="dropdown-divider"></div>
+          
+          <a class="dropdown-item" href="#">Uploads</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Logout</a>
         </div>
