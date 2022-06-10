@@ -40,26 +40,22 @@ $user = $_SESSION['kenyanid'];//used to know which user is loggeg in
         </button>
         
       </div>
-      <div class="alert alert-warning" role="alert" style='text-align:center'>
+      <div class="alert alert-warning mb-0" role="alert" style='text-align:center'>
   Please Note: You can only submit <strong>once!</strong>.
 </div>
       <div class="modal-body">
         <form>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Financial Year:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="financial-year" name='financial_year' readonly value='2022_2023'>
           </div>
           <div class="form-group">
         <label for="recipient-name" class="col-form-label">Serial No:</label>
-        <input type="text" class="form-control" id="recipient-name">
+        <input type="text" class="form-control" id="serial_no" name='serial_number' readonly value='582'>
       </div>
-      <div class="form-group">
-  <label for="recipient-name" class="col-form-label">Student ID:</label>
-  <input type="text" class="form-control" id="recipient-name">
-</div>
           <div class="form-group">
   <label for="recipient-name" class="col-form-label">Date of Application:</label>
-  <input type="text" class="form-control" id="recipient-name">
+  <input type="text" class="form-control" id="application_date" name='date_of_application' readonly value='10-06-2022'>
 </div>
        
 <div class="modal-footer">
