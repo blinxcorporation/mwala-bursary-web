@@ -13,7 +13,7 @@
         <a class="nav-link" href="#">Bursary Tracking(status)</a>
       </li>
       <li class="nav-item active">
-     <a class="nav-link" href="#">Applications</a>
+     <a class="nav-link" href="./applications.php">Applications</a>
    </li>
       
       <li class="nav-item dropdown active">

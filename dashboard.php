@@ -41,7 +41,7 @@ $user = $_SESSION['kenyanid'];//used to know which user is loggeg in
         
       </div>
       <div class="alert alert-warning mb-0" role="alert" style='text-align:center'>
-  Please Note: You can only submit <strong>once!</strong>.
+  Please Note: You can only submit <strong style='color:red;'>ONCE!</strong>.
 </div>
       <div class="modal-body">
         <form>
@@ -81,7 +81,7 @@ $user = $_SESSION['kenyanid'];//used to know which user is loggeg in
     <h5 class="card-header">Previous Application(s)</h5>
     <div class="card-body">
       <p class="card-text">Click the <strong>View Previous Applications</strong> button below to view previous applications that you made.</p>
-      <a href="#" class="btn btn-info">View Previous Applications</a>
+      <a href="./applications.php" class="btn btn-info">View Previous Applications</a>
     </div>
   </div>
   </div>
