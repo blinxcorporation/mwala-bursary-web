@@ -1,6 +1,10 @@
 <?php
 include './server.php';
 $user = $_SESSION['kenyanid'];//used to know which user is loggeg in
+
+$fname = $_SESSION['fname'] ;
+$lname = $_SESSION['lname'] ;
+$phone = $_SESSION['phone'] ;
 ?>
 <!DOCTYPE html>
 <html lang="en">

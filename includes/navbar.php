@@ -36,7 +36,7 @@
          Profile
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Benson Makau</a>
+          <a class="dropdown-item" href="#"><?php echo $fname .' '.$lname; ?></a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Personal Details</a>
           <div class="dropdown-divider"></div>
