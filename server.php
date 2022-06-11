@@ -29,13 +29,17 @@ if(isset($_POST['student_login_btn'])){
       //row data
     $nationalId = $row['kenyan_id'];
     $student_fname = $row['student_firstname'];
+    $student_mname = $row['student_middlename'];
     $student_lname = $row['student_lastname'];
     $student_phone= $row['student_phone'];
+    $student_email= $row['student_email'];
     $student_pass= $row['student_password'];
 
     $_SESSION['kenyanid'] =  $nationalId;
     $_SESSION['fname'] =  $student_fname;
+    $_SESSION['mname'] =  $student_mname;
     $_SESSION['lname'] =  $student_lname;
+    $_SESSION['mail'] =  $student_email;
     $_SESSION['phone'] =  $student_phone;
 
     if (isset($_POST['rememberme'])) {
