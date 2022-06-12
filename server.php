@@ -94,7 +94,7 @@ if(isset($_POST['profile_update_btn'])){
     echo '<script>alert("Phone number is missing. Fill the form and try again.");</script>';
   }
   // Update Data on database
-  $update_profile_query= "UPDATE `student_details` SET `kenyan_id`='$identity',
+  $update_profile_query= "UPDATE `student_details` SET 
   `student_firstname`='$firstname',`student_middlename`='$middlename',`student_lastname`='$lastname',
   `student_email`='$email',`student_phone`='$tel' WHERE `kenyan_id` ='$identity' ";
    $results=  mysqli_query($db,$update_profile_query);
@@ -102,6 +102,7 @@ if(isset($_POST['profile_update_btn'])){
    if($results){
     echo "<script>
     alert('Profile Updated Successfully');
+ 
     window.location.href='dashboard.php';
     </script>";
     die(); //Stops PHP from further execution
