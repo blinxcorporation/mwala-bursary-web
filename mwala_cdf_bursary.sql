@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 06, 2022 at 03:04 PM
+-- Generation Time: Jun 12, 2022 at 08:23 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `mwala_cdf_bursary`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `financial_year`
+--
+
+CREATE TABLE `financial_year` (
+  `id` int(11) NOT NULL,
+  `year_id` varchar(20) NOT NULL,
+  `year` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `financial_year`
+--
+
+INSERT INTO `financial_year` (`id`, `year_id`, `year`) VALUES
+(1, 'Y001', '2020_2021'),
+(2, 'Y002', '2021_2022');
 
 -- --------------------------------------------------------
 
@@ -88,6 +108,13 @@ INSERT INTO `wards_details` (`sno`, `ward_id`, `ward_name`) VALUES
 --
 
 --
+-- Indexes for table `financial_year`
+--
+ALTER TABLE `financial_year`
+  ADD PRIMARY KEY (`year_id`),
+  ADD KEY `id` (`id`);
+
+--
 -- Indexes for table `student_details`
 --
 ALTER TABLE `student_details`
@@ -112,6 +139,12 @@ ALTER TABLE `wards_details`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `financial_year`
+--
+ALTER TABLE `financial_year`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `student_details`
