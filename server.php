@@ -97,9 +97,16 @@ if(isset($_POST['profile_update_btn'])){
   $update_profile_query= "UPDATE `student_details` SET `kenyan_id`='$identity',
   `student_firstname`='$firstname',`student_middlename`='$middlename',`student_lastname`='$lastname',
   `student_email`='$email',`student_phone`='$tel' WHERE `kenyan_id` ='$identity' ";
-    mysqli_query($db,$update_profile_query);
-    echo "<script></script>";
-    header("Location: dashboard.php");
+   $results=  mysqli_query($db,$update_profile_query);
+
+   if($results){
+    echo "<script>
+    alert('Profile Updated Successfully');
+    window.location.href='dashboard.php';
+    </script>";
+    die(); //Stops PHP from further execution
+}
+  
 }
 ob_end_flush();
 ?>
