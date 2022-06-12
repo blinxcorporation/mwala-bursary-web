@@ -69,6 +69,37 @@ if(isset($_POST['student_login_btn'])){
   }
 
 }
-
+//Update student profile details
+if(isset($_POST['profile_update_btn'])){
+  $identity = $_POST['national_identity'];
+  $firstname = $_POST['fname'];
+  $middlename = $_POST['mname'];
+  $lastname = $_POST['lname'];
+  $email= $_POST['mail'];
+  $tel= $_POST['phone'];
+  
+  if(empty($identity)){
+    echo '<script>alert("Natinal ID or Passport is missing. Fill the form and try again.");</script>';
+  }
+  if(empty($firstname)){
+    echo '<script>alert("Firstname is missing. Fill the form and try again.");</script>';
+  }
+  if(empty($lastname)){
+    echo '<script>alert("Lastname is missing. Fill the form and try again.");</script>';
+  }
+  if(empty($email)){
+    echo '<script>alert("Email Address is missing. Fill the form and try again.");</script>';
+  }
+  if(empty($tel)){
+    echo '<script>alert("Phone number is missing. Fill the form and try again.");</script>';
+  }
+  // Update Data on database
+  $update_profile_query= "UPDATE `student_details` SET `kenyan_id`='$identity',
+  `student_firstname`='$firstname',`student_middlename`='$middlename',`student_lastname`='$lastname',
+  `student_email`='$email',`student_phone`='$tel' WHERE `kenyan_id` ='$identity' ";
+    mysqli_query($db,$update_profile_query);
+    echo "<script></script>";
+    header("Location: dashboard.php");
+}
 ob_end_flush();
 ?>
