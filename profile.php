@@ -42,7 +42,7 @@ $email= $row['student_email'];
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">National ID/Passport</label>
                             <input type="text" name="national_identity" class="form-control" id="inputEmail4" required
-                                placeholder="National ID/Passport" value="<?php echo $user; ?>" readonly>
+                                placeholder="National ID/Passport" value="<?php echo $nationalId; ?>" readonly>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Firstname</label>
@@ -80,7 +80,7 @@ $email= $row['student_email'];
                     <div class="row">
                         <div class="col-md-4"></div>
                         <div class="col-md-4">
-                            <button type="submit" name="profile_update_btn" class="btn btn-success">Update
+                            <button type="submit" name="profile_update_btn" class="btn btn-success btn-block">Update
                                 Details</button>
                         </div>
                         <div class="col-md-4"></div>
