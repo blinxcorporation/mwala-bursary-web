@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 12, 2022 at 08:23 PM
+-- Generation Time: Jun 13, 2022 at 11:05 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `mwala_cdf_bursary`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `education_details`
+--
+
+CREATE TABLE `education_details` (
+  `id` int(11) NOT NULL,
+  `student_id` varchar(50) NOT NULL,
+  `institution` varchar(255) NOT NULL,
+  `course_name` varchar(500) NOT NULL,
+  `course_duration` int(11) NOT NULL,
+  `national_id` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `education_details`
+--
+
+INSERT INTO `education_details` (`id`, `student_id`, `institution`, `course_name`, `course_duration`, `national_id`) VALUES
+(1, 'CIT/00046/019', 'Maseno University', 'Bachelor of Science(Information Technology)', 4, 37505349);
 
 -- --------------------------------------------------------
 
@@ -55,15 +77,17 @@ CREATE TABLE `student_details` (
   `student_lastname` varchar(255) NOT NULL,
   `student_email` varchar(50) NOT NULL,
   `student_phone` bigint(15) NOT NULL,
-  `student_password` varchar(255) NOT NULL
+  `student_password` varchar(255) NOT NULL,
+  `parent_phone` bigint(20) DEFAULT 0,
+  `date_of_registration` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `student_details`
 --
 
-INSERT INTO `student_details` (`id`, `kenyan_id`, `student_firstname`, `student_middlename`, `student_lastname`, `student_email`, `student_phone`, `student_password`) VALUES
-(1, 37505349, 'Benson', 'Makau', 'Katumo', 'bensonmakau2000@gmail.com', 254758413462, 'ebcfd5a11d7cf5ba89f838fc766be7a4');
+INSERT INTO `student_details` (`id`, `kenyan_id`, `student_firstname`, `student_middlename`, `student_lastname`, `student_email`, `student_phone`, `student_password`, `parent_phone`, `date_of_registration`) VALUES
+(1, 37505349, 'Benson', 'Makau', 'Katumo', 'bensonmakau2000@gmail.com', 254758413462, 'ebcfd5a11d7cf5ba89f838fc766be7a4', 254711512051, '2022-06-01 23:37:53');
 
 -- --------------------------------------------------------
 
@@ -101,11 +125,20 @@ CREATE TABLE `wards_details` (
 --
 
 INSERT INTO `wards_details` (`sno`, `ward_id`, `ward_name`) VALUES
-(1, 'MWALA001', 'Wamunyu');
+(1, 'MWALA001', 'Wamunyu'),
+(1, 'MWALA002', 'Yathui');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `education_details`
+--
+ALTER TABLE `education_details`
+  ADD PRIMARY KEY (`student_id`),
+  ADD KEY `id` (`id`),
+  ADD KEY `national_id` (`national_id`);
 
 --
 -- Indexes for table `financial_year`
@@ -141,6 +174,12 @@ ALTER TABLE `wards_details`
 --
 
 --
+-- AUTO_INCREMENT for table `education_details`
+--
+ALTER TABLE `education_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `financial_year`
 --
 ALTER TABLE `financial_year`
@@ -167,6 +206,12 @@ ALTER TABLE `wards_details`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `education_details`
+--
+ALTER TABLE `education_details`
+  ADD CONSTRAINT `national_id` FOREIGN KEY (`national_id`) REFERENCES `student_details` (`kenyan_id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `student_ward_details`
