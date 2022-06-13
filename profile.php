@@ -1,11 +1,21 @@
 <?php
 include './server.php';
 $user = $_SESSION['kenyanid'];//used to know which user is loggeg in
-$fname = $_SESSION['fname'] ;
-$lname = $_SESSION['lname'] ;
-$mname = $_SESSION['mname'] ;
-$email = $_SESSION['mail'] ;
-$phone = $_SESSION['phone'] ;
+
+$profile_query = "SELECT * FROM `student_details` WHERE  `kenyan_id` ='$user' ";
+$profile_results = mysqli_query($db, $profile_query);
+
+if (mysqli_num_rows($profile_results) == 1) {
+  $row = mysqli_fetch_assoc($profile_results);
+  //row data
+$nationalId = $row['kenyan_id'];
+$fname = $row['student_firstname'];
+$mname = $row['student_middlename'];
+$lname = $row['student_lastname'];
+$phone= $row['student_phone'];
+$email= $row['student_email'];
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
