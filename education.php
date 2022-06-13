@@ -64,6 +64,52 @@ $regno= $row['student_id'];
                                 placeholder="Course Duration" value="<?php echo $duration; ?>" readonly>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputState">Mode of Study</label>
+                            <select id="inputState" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>Full Time</option>
+                                <option>Part Time</option>
+                                <option>Online</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputState">Year of Study</label>
+                            <select id="inputState" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputState">Semester</label>
+                            <select id="inputState" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>Y1S1</option>
+                                <option>Y1S2</option>
+                                <option>Y2S1</option>
+                                <option>Y2S2</option>
+                                <option>Y3S1</option>
+                                <option>Y3S2</option>
+                                <option>Y4S1</option>
+                                <option>Y4S2</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputState">State</label>
+                            <select id="inputState" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                    </div>
 
 
 
