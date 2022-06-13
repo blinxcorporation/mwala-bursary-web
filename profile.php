@@ -1,11 +1,21 @@
 <?php
 include './server.php';
 $user = $_SESSION['kenyanid'];//used to know which user is loggeg in
-$fname = $_SESSION['fname'] ;
-$lname = $_SESSION['lname'] ;
-$mname = $_SESSION['mname'] ;
-$email = $_SESSION['mail'] ;
-$phone = $_SESSION['phone'] ;
+
+$profile_query = "SELECT * FROM `student_details` WHERE  `kenyan_id` ='$user' ";
+$profile_results = mysqli_query($db, $profile_query);
+
+if (mysqli_num_rows($profile_results) == 1) {
+  $row = mysqli_fetch_assoc($profile_results);
+  //row data
+$nationalId = $row['kenyan_id'];
+$fname = $row['student_firstname'];
+$mname = $row['student_middlename'];
+$lname = $row['student_lastname'];
+$phone= $row['student_phone'];
+$email= $row['student_email'];
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +42,7 @@ $phone = $_SESSION['phone'] ;
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">National ID/Passport</label>
                             <input type="text" name="national_identity" class="form-control" id="inputEmail4" required
-                                placeholder="National ID/Passport" value="<?php echo $user; ?>" readonly>
+                                placeholder="National ID/Passport" value="<?php echo $nationalId; ?>" readonly>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Firstname</label>
@@ -70,7 +80,7 @@ $phone = $_SESSION['phone'] ;
                     <div class="row">
                         <div class="col-md-4"></div>
                         <div class="col-md-4">
-                            <button type="submit" name="profile_update_btn" class="btn btn-success">Update
+                            <button type="submit" name="profile_update_btn" class="btn btn-success btn-block">Update
                                 Details</button>
                         </div>
                         <div class="col-md-4"></div>
