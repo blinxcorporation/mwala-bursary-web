@@ -2,18 +2,18 @@
 include './server.php';
 $user = $_SESSION['kenyanid'];//used to know which user is loggeg in
 
-$profile_query = "SELECT * FROM `student_details` WHERE  `kenyan_id` ='$user' ";
-$profile_results = mysqli_query($db, $profile_query);
+$education_query = "SELECT * FROM `education_details` WHERE  `national_id` ='$user' ";
+$education_results = mysqli_query($db, $education_query);
 
-if (mysqli_num_rows($profile_results) == 1) {
-  $row = mysqli_fetch_assoc($profile_results);
+if (mysqli_num_rows($education_results) == 1) {
+  $row = mysqli_fetch_assoc($education_results);
   //row data
-$nationalId = $row['kenyan_id'];
-$fname = $row['student_firstname'];
-$mname = $row['student_middlename'];
-$lname = $row['student_lastname'];
-$phone= $row['student_phone'];
-$email= $row['student_email'];
+$nationalId = $row['national_id'];
+$institution= $row['institution'];
+$course = $row['course_name'];
+$duration = $row['course_duration'];
+$regno= $row['student_id'];
+
 
 }
 ?>
@@ -38,45 +38,35 @@ $email= $row['student_email'];
             <div class="col-md-6 mt-3 p-4 bg-light border border-primary">
                 <h3 class="text-center">Education Details</h3>
                 <form method='POST' action='server.php'>
+
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Student ID</label>
                             <input type="text" name="national_identity" class="form-control" id="inputEmail4" required
-                                placeholder="National ID/Passport" value="<?php echo $nationalId; ?>" readonly>
+                                placeholder="Student ID" value="<?php echo $regno; ?>" readonly>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Institution Name</label>
                             <input type="text" name="fname" class="form-control" id="inputPassword4" required
-                                placeholder="Firstname" value="<?php echo $fname; ?>">
+                                placeholder="Institution" value="<?php echo $institution; ?>" readonly>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputEmail4">Course</label>
-                            <input type="text" name="mname" class="form-control" id="inputEmail4"
-                                placeholder="Middlename" value="<?php echo $mname; ?>">
+                            <label for="inputEmail4">Course Name</label>
+                            <input type="text" name="mname" class="form-control" id="inputEmail4" placeholder="Course"
+                                value="<?php echo $course; ?>" readonly>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inputPassword4">Year of Study</label>
-                            <input type="text" name="lname" class="form-control" id="inputPassword4" required
-                                placeholder="Lastname" value="<?php echo $lname; ?>">
+                            <label for="inputPassword4">Course Duration</label>
+                            <input type="number" name="lname" class="form-control" id="inputPassword4" required
+                                placeholder="Course Duration" value="<?php echo $duration; ?>" readonly>
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputCity">Email Address</label>
-                            <input type="email" name="mail" class="form-control" id="inputCity" required placeholder=' Email
-                                Address' value="<?php echo $email; ?>">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputCity">Phone Number</label>
-                            <input type="number" name="phone" class="form-control" id="inputCity" required
-                                placeholder="254......." value="<?php echo $phone; ?>">
-                        </div>
 
-                    </div>
+
                     <div class="row">
                         <div class="col-md-4"></div>
                         <div class="col-md-4">
