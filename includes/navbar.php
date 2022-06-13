@@ -46,8 +46,9 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="./profile.php">Personal Details</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Educational Details</a>
-                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="./education.php">Educational Details</a>
+                    <div class=" dropdown-divider">
+                    </div>
 
                     <a class="dropdown-item" href="#">Uploads</a>
                     <div class="dropdown-divider"></div>
