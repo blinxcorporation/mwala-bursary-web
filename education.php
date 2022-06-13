@@ -70,7 +70,7 @@ $regno= $row['student_id'];
                     <div class="row">
                         <div class="col-md-4"></div>
                         <div class="col-md-4">
-                            <button type="submit" name="profile_update_btn" class="btn btn-success btn-block">Update
+                            <button type="submit" name="education_update_btn" class="btn btn-success btn-block">Update
                                 Details</button>
                         </div>
                         <div class="col-md-4"></div>
