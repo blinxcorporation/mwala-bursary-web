@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 17, 2022 at 05:32 PM
+-- Generation Time: Jun 17, 2022 at 05:46 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -51,15 +51,17 @@ CREATE TABLE `education_details` (
   `student_id` varchar(50) NOT NULL,
   `institution_id` varchar(20) NOT NULL,
   `course_id` varchar(50) NOT NULL,
-  `course_duration` int(11) NOT NULL DEFAULT 0
+  `course_duration` int(11) NOT NULL DEFAULT 0,
+  `start_year` bigint(20) NOT NULL,
+  `end_year` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `education_details`
 --
 
-INSERT INTO `education_details` (`id`, `student_id`, `institution_id`, `course_id`, `course_duration`) VALUES
-(1, 'CIT/00046/019', 'IN001', 'CRS001', 4);
+INSERT INTO `education_details` (`id`, `student_id`, `institution_id`, `course_id`, `course_duration`, `start_year`, `end_year`) VALUES
+(1, 'CIT/00046/019', 'IN001', 'CRS001', 4, 2019, 2023);
 
 -- --------------------------------------------------------
 
@@ -151,6 +153,31 @@ INSERT INTO `student_ward_details` (`sno`, `ward_id`, `student_kenyan_id`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `study_years`
+--
+
+CREATE TABLE `study_years` (
+  `id` int(11) NOT NULL,
+  `year_no_id` varchar(20) NOT NULL,
+  `number_of_years` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `study_years`
+--
+
+INSERT INTO `study_years` (`id`, `year_no_id`, `number_of_years`) VALUES
+(1, '1YR', 1),
+(2, '2YR', 2),
+(3, '3YR', 3),
+(4, '4YR', 4),
+(5, '5YR', 5),
+(6, '6YR', 6),
+(7, '7YR', 7);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `wards_details`
 --
 
@@ -186,7 +213,10 @@ ALTER TABLE `education_details`
   ADD PRIMARY KEY (`student_id`),
   ADD KEY `id` (`id`),
   ADD KEY `institution_id` (`institution_id`),
-  ADD KEY `course_id` (`course_id`);
+  ADD KEY `course_id` (`course_id`),
+  ADD KEY `course_duration` (`course_duration`),
+  ADD KEY `start_year` (`start_year`),
+  ADD KEY `end_year` (`end_year`);
 
 --
 -- Indexes for table `financial_year`
@@ -217,6 +247,14 @@ ALTER TABLE `student_ward_details`
   ADD PRIMARY KEY (`sno`),
   ADD KEY `student_ward` (`ward_id`),
   ADD KEY `kenyan_id` (`student_kenyan_id`);
+
+--
+-- Indexes for table `study_years`
+--
+ALTER TABLE `study_years`
+  ADD PRIMARY KEY (`year_no_id`),
+  ADD KEY `id` (`id`),
+  ADD KEY `number_of_years` (`number_of_years`);
 
 --
 -- Indexes for table `wards_details`
@@ -266,6 +304,12 @@ ALTER TABLE `student_ward_details`
   MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `study_years`
+--
+ALTER TABLE `study_years`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `wards_details`
 --
 ALTER TABLE `wards_details`
@@ -281,7 +325,8 @@ ALTER TABLE `wards_details`
 ALTER TABLE `education_details`
   ADD CONSTRAINT `course_id` FOREIGN KEY (`course_id`) REFERENCES `course_details` (`course_id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `insititution_rel` FOREIGN KEY (`institution_id`) REFERENCES `institution` (`institution_id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `student_id` FOREIGN KEY (`student_id`) REFERENCES `student_details` (`student_school_id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `student_id` FOREIGN KEY (`student_id`) REFERENCES `student_details` (`student_school_id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `study_years` FOREIGN KEY (`course_duration`) REFERENCES `study_years` (`number_of_years`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `student_ward_details`
