@@ -5,6 +5,8 @@ $user = $_SESSION['kenyanid'];//used to know which user is loggeg in
 $fname = $_SESSION['fname'] ;
 $lname = $_SESSION['lname'] ;
 $phone = $_SESSION['phone'] ;
+//Get Current Date
+$today = date("d/m/Y");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +71,7 @@ $phone = $_SESSION['phone'] ;
                                                 <label for="recipient-name" class="col-form-label">Date of
                                                     Application:</label>
                                                 <input type="text" class="form-control" id="application_date"
-                                                    name='date_of_application' readonly value='10-06-2022'>
+                                                    name='date_of_application' readonly value='<?php echo $today; ?>'>
                                             </div>
 
                                             <div class="modal-footer">
