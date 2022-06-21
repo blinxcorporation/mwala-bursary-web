@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 21, 2022 at 10:11 PM
+-- Generation Time: Jun 21, 2022 at 10:21 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -29,8 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `application_details` (
   `id` int(11) NOT NULL,
-  `serial_no` varchar(50) NOT NULL,
+  `application_serial_no` varchar(50) NOT NULL,
   `student_id` varchar(255) NOT NULL,
+  `financial_year_id` varchar(20) NOT NULL,
   `date_of_application` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -38,8 +39,8 @@ CREATE TABLE `application_details` (
 -- Dumping data for table `application_details`
 --
 
-INSERT INTO `application_details` (`id`, `serial_no`, `student_id`, `date_of_application`) VALUES
-(1, '001', 'CIT/00046/019', '2022-06-21 23:08:41');
+INSERT INTO `application_details` (`id`, `application_serial_no`, `student_id`, `financial_year_id`, `date_of_application`) VALUES
+(1, '001', 'CIT/00046/019', 'Y001', '2022-06-21 23:08:41');
 
 -- --------------------------------------------------------
 
@@ -106,20 +107,20 @@ INSERT INTO `financial_year` (`id`, `year_id`, `year`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `institution`
+-- Table structure for table `institution_details`
 --
 
-CREATE TABLE `institution` (
+CREATE TABLE `institution_details` (
   `id` int(11) NOT NULL,
   `institution_id` varchar(20) NOT NULL,
   `insitution_name` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `institution`
+-- Dumping data for table `institution_details`
 --
 
-INSERT INTO `institution` (`id`, `institution_id`, `insitution_name`) VALUES
+INSERT INTO `institution_details` (`id`, `institution_id`, `insitution_name`) VALUES
 (1, 'IN001', 'Maseno University'),
 (2, 'IN002', 'Kenyatta University'),
 (3, 'IN003', 'Kisii University');
@@ -223,9 +224,10 @@ INSERT INTO `wards_details` (`sno`, `ward_id`, `ward_name`) VALUES
 -- Indexes for table `application_details`
 --
 ALTER TABLE `application_details`
-  ADD PRIMARY KEY (`serial_no`),
+  ADD PRIMARY KEY (`application_serial_no`),
   ADD KEY `id` (`id`),
-  ADD KEY `student_id` (`student_id`);
+  ADD KEY `student_id` (`student_id`),
+  ADD KEY `financial_year_id` (`financial_year_id`);
 
 --
 -- Indexes for table `course_details`
@@ -254,9 +256,9 @@ ALTER TABLE `financial_year`
   ADD KEY `id` (`id`);
 
 --
--- Indexes for table `institution`
+-- Indexes for table `institution_details`
 --
-ALTER TABLE `institution`
+ALTER TABLE `institution_details`
   ADD PRIMARY KEY (`institution_id`),
   ADD KEY `id` (`id`);
 
@@ -320,9 +322,9 @@ ALTER TABLE `financial_year`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `institution`
+-- AUTO_INCREMENT for table `institution_details`
 --
-ALTER TABLE `institution`
+ALTER TABLE `institution_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
@@ -357,6 +359,7 @@ ALTER TABLE `wards_details`
 -- Constraints for table `application_details`
 --
 ALTER TABLE `application_details`
+  ADD CONSTRAINT `financial_year_id` FOREIGN KEY (`financial_year_id`) REFERENCES `financial_year` (`year_id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `student_school_id` FOREIGN KEY (`student_id`) REFERENCES `student_details` (`student_school_id`) ON UPDATE CASCADE;
 
 --
@@ -364,7 +367,7 @@ ALTER TABLE `application_details`
 --
 ALTER TABLE `education_details`
   ADD CONSTRAINT `course_id` FOREIGN KEY (`course_id`) REFERENCES `course_details` (`course_id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `insititution_rel` FOREIGN KEY (`institution_id`) REFERENCES `institution` (`institution_id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `insititution_rel` FOREIGN KEY (`institution_id`) REFERENCES `institution_details` (`institution_id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `student_id` FOREIGN KEY (`student_id`) REFERENCES `student_details` (`student_school_id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `study_years` FOREIGN KEY (`course_duration`) REFERENCES `study_years` (`number_of_years`) ON UPDATE CASCADE;
 
