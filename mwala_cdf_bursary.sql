@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 17, 2022 at 05:46 PM
+-- Generation Time: Jun 21, 2022 at 10:11 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `mwala_cdf_bursary`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `application_details`
+--
+
+CREATE TABLE `application_details` (
+  `id` int(11) NOT NULL,
+  `serial_no` varchar(50) NOT NULL,
+  `student_id` varchar(255) NOT NULL,
+  `date_of_application` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `application_details`
+--
+
+INSERT INTO `application_details` (`id`, `serial_no`, `student_id`, `date_of_application`) VALUES
+(1, '001', 'CIT/00046/019', '2022-06-21 23:08:41');
 
 -- --------------------------------------------------------
 
@@ -200,6 +220,14 @@ INSERT INTO `wards_details` (`sno`, `ward_id`, `ward_name`) VALUES
 --
 
 --
+-- Indexes for table `application_details`
+--
+ALTER TABLE `application_details`
+  ADD PRIMARY KEY (`serial_no`),
+  ADD KEY `id` (`id`),
+  ADD KEY `student_id` (`student_id`);
+
+--
 -- Indexes for table `course_details`
 --
 ALTER TABLE `course_details`
@@ -268,6 +296,12 @@ ALTER TABLE `wards_details`
 --
 
 --
+-- AUTO_INCREMENT for table `application_details`
+--
+ALTER TABLE `application_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `course_details`
 --
 ALTER TABLE `course_details`
@@ -318,6 +352,12 @@ ALTER TABLE `wards_details`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `application_details`
+--
+ALTER TABLE `application_details`
+  ADD CONSTRAINT `student_school_id` FOREIGN KEY (`student_id`) REFERENCES `student_details` (`student_school_id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `education_details`
